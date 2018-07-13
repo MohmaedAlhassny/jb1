@@ -1,0 +1,17 @@
+{
+  "name": "jb1",
+  "version": "1.0.0",
+  "description": "has nothing to say.",
+  "main": "bot.js",
+  "dependencies": {
+    "simple-youtube-api": "^5.0.2",
+    "ytdl-core": "^0.20.4",
+    "discord.js": "^11.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MohmaedAlhassny",
+  "license": "ISC"
+}
