@@ -5,7 +5,7 @@ const prefix = '#';
 
 client.on("message", message => {
  if (message.content === `${prefix}help`) {
-  const embed = new Discord.Rich() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
+  const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setColor('RANDOM')//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setDescription(`
 ${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
