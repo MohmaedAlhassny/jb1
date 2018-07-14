@@ -27,6 +27,7 @@ client.on('ready', () => {
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 const prefix = "#"
 client.on('message', async msg => { // eslint-disable-line
+var argument = message.content.split(` `).slice(1).join(' ');	
 	if (msg.author.bot) return undefined;
 	//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	if (!msg.content.startsWith(prefix)) return undefined;
