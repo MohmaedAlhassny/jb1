@@ -50,7 +50,7 @@ client.on('message',async message => {
 
 client.on('ready', () => {
 console.log(`Login as [ ${client.user.username} ]`)
-client.user.setGame(`${prefix}help + ${prefix}invite | ${client.guilds.size} server.`, "https://twitch.tv/L3bBot")
+client.user.setGame(`VikingsBC.`, "https://twitch.tv/Vikings")
 });
 
 
