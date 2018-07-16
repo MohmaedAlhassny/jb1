@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '$'
 const fs = require('fs')
-const mysql = require('mysql');
-const token = 'NDUxOTIxMzIyODM1MTgxNTg5.DiPY4Q.OFdnIhyauXiY1Kbg_s4cLyudot8'
 const games = JSON.parse(fs.readFileSync('./games.json', "utf8"));
 const moment = require("moment");
 
