@@ -244,16 +244,16 @@ ${prefix}stop > لأيقاف الاغنية
 ${prefix}pause > لأيقاف الاغنية مؤقتاً
 ${prefix}resume > لتشغيل الاغنية التي وقفتها مؤقتاً**`;
 
-var HelpEmbed = new Discord.RichEmbed()
+client.on('message', message => {
+	if(message.content == `${prefix}help`) {
+
+		var HelpEmbed = new Discord.RichEmbed()
 
 	.setAuthor(message.sender.avatarURL, message.sender.username)
 	.setDescription(helpe)
 	.setColor('RANDOM')
 	.setFooter("Help Commands.")
-
-
-client.on('message', message => {
-	if(message.content == `${prefix}help`) {
+		
 		message.channel.send('تم أرسال قائمة المساعدة.')
 		message.sender.send(HelpEmbed);
 	}
