@@ -11,7 +11,7 @@ const prefix = '#';
 
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-	console.log(`Working!, ${client.guilds.size} server.`);
+	console.log(`Working!, ${client.users.size} u.`);
 	client.user.setGame('#Play');
 });
 
