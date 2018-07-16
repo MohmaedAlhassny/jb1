@@ -232,29 +232,3 @@ client.on('message', function(message) {
 		return str.toLowerCase().indexOf('youtube.com') > -1;
 	}
 });
-
-var amount = 'مستوى الصوت';
-
-var helpe = `**Help Commands..
-
-${prefix}play > لتشغيل أغنية معينة
-${prefix}vol ${amount} > لتغيير الصوت
-${prefix}skip > لتخطي الاغنية
-${prefix}stop > لأيقاف الاغنية
-${prefix}pause > لأيقاف الاغنية مؤقتاً
-${prefix}resume > لتشغيل الاغنية التي وقفتها مؤقتاً**`;
-
-client.on('message', message => {
-	if(message.content == `${prefix}help`) {
-
-		var HelpEmbed = new Discord.RichEmbed()
-
-	.setAuthor(message.sender.avatarURL, message.sender.username)
-	.setDescription(helpe)
-	.setColor('RANDOM')
-	.setFooter("Help Commands.")
-		
-		message.channel.send('تم أرسال قائمة المساعدة.')
-		message.sender.send(HelpEmbed);
-	}
-});
