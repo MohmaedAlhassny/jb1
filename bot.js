@@ -4,7 +4,7 @@ const prefix = '!'
 const fs = require('fs')
 
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+ 
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "bc")) {
     let filter = m => m.author.id === message.author.id;
