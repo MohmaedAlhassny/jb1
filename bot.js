@@ -51,8 +51,10 @@ if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
 .setTitle('**تقديم رتبة بائع**')
-.setDescription(`**الاسم :question:  : \n ${lan}\nهل سبق وان كنت في متجر :link: :\n ${md} \nماذا ستبيع ? :\n ${br}  **`)  
-          .setFooter(`Codes Shop.`)
+.addField(`الاسم:`, lan, true)
+.addField(`هل عملت متجر اخر؟`, md, true)
+.addField(`ماذا ستبيع؟`, br, true)
+          .setFooter(`by alSayed.`)
 .setTimestamp()
 });
 }        
