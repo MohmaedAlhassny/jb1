@@ -37,7 +37,7 @@ client.on('message',async message => {
         message.guild.members.forEach(member => {
           msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
           collected.first().delete();
-          member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
+          member.send(`${thisMessage}`);
         });
         }
       });
