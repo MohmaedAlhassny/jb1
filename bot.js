@@ -543,4 +543,4 @@ msg.channel.send('**Pong :` ' + `${client.ping}` + ' `**')
 })
 
 
-	client.login(token)
+client.login(process.env.BOT_TOKEN);
