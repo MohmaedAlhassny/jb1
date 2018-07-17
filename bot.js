@@ -1,9 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '!'
-const fs = require('fs')
+const prefix = '!';
+const fs = require('fs');
 
 
+client.on('ready', () => {
+console.log(`Login as [ ${client.user.username} ]`)
+	client.user.setUsername('Smile Server.');
+client.user.setGame(`Smile Server. ${client.users.size}`, "https://twitch.tv/SmileServer")
+}); 
  
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "bc")) {
@@ -47,13 +52,6 @@ client.on('message',async message => {
   }
 });
 
-
-
-client.on('ready', () => {
-console.log(`Login as [ ${client.user.username} ]`)
-	client.user.setUsername('Smile Server.');
-client.user.setGame(`Smile Server. ${client.users.size}`, "https://twitch.tv/SmileServer")
-}); 
 
 
 	client.on('message', msg => {
