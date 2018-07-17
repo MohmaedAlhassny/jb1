@@ -7,6 +7,7 @@ const fs = require('fs')
  
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "bc")) {
+	  if(!member.hasPermission('ADMINSTRATOR')) return message.channel.send('No!');
     let filter = m => m.author.id === message.author.id;
     let thisMessage;
     let thisFalse;
@@ -50,9 +51,8 @@ client.on('message',async message => {
 
 client.on('ready', () => {
 console.log(`Login as [ ${client.user.username} ]`)
-client.user.setGame(`VikingsBC.`, "https://twitch.tv/Vikings")
-});
-
+client.user.setGame(`Smile Server. ${client.users.size}`, "https://twitch.tv/SmileServer")
+}); 
 
 
 	client.on('message', msg => {
