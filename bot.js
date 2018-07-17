@@ -6,7 +6,6 @@ const fs = require('fs');
 
 client.on('ready', () => {
 console.log(`Login as [ ${client.user.username} ] :D `);
-client.user.setAvatar('https://cdn.discordapp.com/attachments/468480878310588416/468807352032821260/smile.png');
 client.user.setGame(`Smile Server |  ${client.users.size}`, "https://twitch.tv/SmileServer")
 }); 
  
@@ -18,9 +17,9 @@ client.on('message', async message => {
     if(message.content.startsWith(prefix + "bc")) {
         if(!message.guild.member(message.author).hasPermission("MANAGE_SERVER")) return message.reply("**# You don't have the needed permissions!**");
         if(!args) return message.reply("**# Supply a message!**");
-        message.channel.send(`\`\`- Name:\`\`\n${message.author}\n\n\`\`- Date:\`\`\n${time}\n\n\`\`- Message:\`\`\n${args}\n\n__# | You have 15s to say Yes or No__`)
+        message.channel.send(`\`\`- Name:\`\`\n${message.author}\n\n\`\`- Date:\`\`\n${time}\n\n\`\`- Message:\`\`\n${args}\n\n__# | You have 15s to say يب or لا__`)
 .then(() => {
-  message.channel.awaitMessages(response => response.content === 'yes', {
+  message.channel.awaitMessages(response => response.content === 'يب', {
     max: 1,
     time: 15000,
     errors: ['time'],
@@ -32,7 +31,7 @@ client.on('message', async message => {
   });
 });
     } else {
-          message.channel.awaitMessages(response => response.content === 'no', {
+          message.channel.awaitMessages(response => response.content === 'لا', {
     max: 1,
     time: 15000,
     errors: ['time'],
