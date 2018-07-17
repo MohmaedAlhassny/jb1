@@ -5,7 +5,8 @@ const fs = require('fs');
 
 
 client.on('ready', () => {
-console.log(`Login as [ ${client.user.username} ]`)
+console.log(`Login as [ ${client.user.username} ] :D `);
+client.user.setAvatar('https://cdn.discordapp.com/attachments/468480878310588416/468807352032821260/smile.png');
 client.user.setGame(`Smile Server |  ${client.users.size}`, "https://twitch.tv/SmileServer")
 }); 
  
