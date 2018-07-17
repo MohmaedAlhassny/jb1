@@ -51,6 +51,7 @@ client.on('message',async message => {
 
 client.on('ready', () => {
 console.log(`Login as [ ${client.user.username} ]`)
+	client.user.setUsername('Smile Server.');
 client.user.setGame(`Smile Server. ${client.users.size}`, "https://twitch.tv/SmileServer")
 }); 
 
