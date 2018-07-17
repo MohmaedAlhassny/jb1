@@ -6,50 +6,40 @@ const fs = require('fs');
 
 client.on('ready', () => {
 console.log(`Login as [ ${client.user.username} ]`)
-	client.user.setUsername('Smile Server.');
-client.user.setGame(`Smile Server. ${client.users.size}`, "https://twitch.tv/SmileServer")
+client.user.setGame(`Smile Server |  ${client.users.size}`, "https://twitch.tv/SmileServer")
 }); 
  
-client.on('message',async message => {
-  if(message.content.startsWith(prefix + "bc")) {
-	  if(!message.author.Permission('ADMINSTRATOR')) return message.channel.send('No!');
-    let filter = m => m.author.id === message.author.id;
-    let thisMessage;
-    let thisFalse;
-    message.channel.send(':regional_indicator_b::regional_indicator_c:| **ارسل الرسالة الان**').then(msg => {
-
-    let awaitM = message.channel.awaitMessages(filter, {
-      max: 1,
-      time: 20000,
-      errors: ['time']
-    })
-    .then(collected => {
-      collected.first().delete();
-      thisMessage = collected.first().content;
-      msg.edit(':regional_indicator_b::regional_indicator_c:| **هل انت متأكد؟**');
-      let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
-        max: 1,
-        time: 20000,
-        errors: ['time']
-      })
-      .then(collected => {
-        if(collected.first().content === 'لا') {
-          msg.delete();
-          message.delete();
-          thisFalse = false;
-        }
-        if(collected.first().content === 'نعم') {
-          if(thisFalse === false) return;
-        message.guild.members.forEach(member => {
-          msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
-          collected.first().delete();
-          member.send(`${thisMessage}`);
-        });
-        }
-      });
+const moment = require("moment");
+client.on('message', async message => {
+    if (!message.channel.guild) return undefined;
+    let time = moment().format('Do MMMM YYYY , hh:mm');
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "bc")) {
+        if(!message.guild.member(message.author).hasPermission("MANAGE_SERVER")) return message.reply("**# You don't have the needed permissions!**");
+        if(!args) return message.reply("**# Supply a message!**");
+        message.channel.send(`\`\`- Name:\`\`\n${message.author}\n\n\`\`- Date:\`\`\n${time}\n\n\`\`- Message:\`\`\n${args}\n\n__# | You have 15s to say Yes or No__`)
+.then(() => {
+  message.channel.awaitMessages(response => response.content === 'yes', {
+    max: 1,
+    time: 15000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+          message.guild.members.forEach(m => m.sendMessage(args));
+          message.channel.send(`**Done!, Sent the message to: \`${message.guild.members.size}\` members!**`);
+      
+  });
+});
+    } else {
+          message.channel.awaitMessages(response => response.content === 'no', {
+    max: 1,
+    time: 15000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.channel.send("__- Broadcast Canceled!__")
     });
-    });
-  }
+    }
 });
 
 
