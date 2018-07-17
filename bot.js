@@ -7,7 +7,7 @@ const fs = require('fs')
  
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "bc")) {
-	  if(!member.hasPermission('ADMINSTRATOR')) return message.channel.send('No!');
+	  if(!message.author.Permission('ADMINSTRATOR')) return message.channel.send('No!');
     let filter = m => m.author.id === message.author.id;
     let thisMessage;
     let thisFalse;
